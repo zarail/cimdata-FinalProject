@@ -1,0 +1,80 @@
+body {
+	overflow-x: hidden;
+	background-color: var(--body-background);
+}
+
+.site-wrapper {
+	display: flex;
+	flex-direction: column;
+	/*  https://ishadeed.com/article/new-viewport-units/ */
+	min-height: 100dvh;
+	background-color: var(--background-color);
+}
+
+.site-content {
+	flex-grow: 1;
+	max-width: var(--max-width-m);
+	margin-inline: auto;
+	width: 100%;
+}
+
+.site-header,
+.site-footer {
+	color: var(--header-footer-color);
+	background-color: var(--header-footer-background-color);
+	padding-block: var(--content-padding);
+}
+
+/* Hilfsklassen für einheitliches Layout. */
+
+.content-padding {
+	padding-inline: var(--content-padding);
+}
+
+.content-width {
+	margin-inline: auto;
+	width: 100%;
+
+	&:where(.content-width--s) {
+		max-width: var(--max-width-s);
+	}
+
+	&:where(.content-width--m) {
+		max-width: var(--max-width-m);
+	}
+
+	&:where(.content-width--l) {
+		max-width: var(--max-width-l);
+	}
+}
+
+/* Klassen für Elemente, die aus ihrem Container ausbrechen sollen,
+z.B. über die volle Breite der Seite. Geeignet für ein einspaltiges
+Layout mit in der Mitte zentriertem und in der Breite begrenztem
+Hauptinhalt. */
+
+.custom-width {
+	width: 100vw;
+	translate: -50%;
+	margin-inline-start: 50%;
+
+	&:where(.custom-width--s) {
+		max-width: var(--max-width-s);
+	}
+
+	&:where(.custom-width--m) {
+		max-width: var(--max-width-m);
+	}
+
+	&:where(.custom-width--l) {
+		max-width: var(--max-width-l);
+	}
+
+	&:where(.custom-width--xl) {
+		max-width: var(--max-width-xl);
+	}
+
+	&:where(.custom-width--full) {
+		max-width: 100vi;
+	}
+}

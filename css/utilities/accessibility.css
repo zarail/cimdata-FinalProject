@@ -1,0 +1,57 @@
+.visually-hidden {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually.*/
+	word-wrap: normal !important;
+}
+
+.visually-hidden-until-focused {
+	&:not(:focus) {
+		border: 0;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute !important;
+		width: 1px;
+		word-wrap: normal !important;
+	}
+}
+
+/* https://piccalil.li/blog/removing-list-styles-without-affecting-semantics/ */
+ul[role='list'],
+ol[role='list'] {
+	list-style: none;
+}
+
+a,
+button,
+input,
+summary {
+	&:focus {
+		outline: dotted 2px currentColor;
+	}
+
+	@supports selector(:focus-visible) {
+		&:hover,
+		&:active,
+		&:focus {
+			outline: 0;
+		}
+
+		&:focus-visible {
+			outline: var(--outline-width, 3px) var(--outline-style, solid)
+				var(--outline-color, currentColor);
+			outline-offset: var(--outline-offset, 3px);
+		}
+	}
+}

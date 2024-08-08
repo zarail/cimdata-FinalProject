@@ -1,0 +1,133 @@
+@import 'buttons.css';
+@import 'forms.css';
+@import 'lists.css';
+@import 'media.css';
+@import 'tables.css';
+@import 'misc-elements.css';
+
+.capital-main {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	padding: var(--space-m);
+	background-color: var(--body-background);
+	margin: var(--space-l);
+}
+
+.capital-actions {
+	display: flex;
+	justify-content: left;
+	gap: var(--space-s);
+	margin-bottom: var(--space-m);
+}
+
+.capital-button {
+	width: 100%;
+	height: 50%;
+	max-width: 180px;
+	color: var(--button-color);
+	background-color: var(--button-background-color);
+	border: 1px solid var(--button-border-color);
+	border-radius: var(--border-radius-m);
+	padding: var(--space-xs) var(--space-s);
+	cursor: pointer;
+	transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.capital-button-secondary {
+	width: 100%;
+	height: 50%;
+	max-width: 180px;
+	color: var(--button-background-color);
+	background-color: var(--button-color);
+	border: 1px solid var(--button-border-color);
+	border-radius: var(--border-radius-m);
+	padding: var(--space-xs) var(--space-s);
+	cursor: pointer;
+	transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.capital-scores,
+.capital-form-container,
+.capital-feedback,
+.capital-hint,
+.capital-endgame {
+	width: 100%;
+	max-width: var(--max-width-m);
+	margin-bottom: var(--space-m);
+}
+
+.capital-score,
+.capital-highscore {
+	text-align: right;
+	margin: var(--space-xs);
+	margin-top: 0;
+}
+
+.capital-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.capital-label {
+	margin-bottom: var(--space-s);
+}
+
+.input-button-container {
+	display: flex;
+	align-items: center;
+	gap: var(--space-s);
+	width: 100%;
+}
+
+.capital-input {
+	padding: var(--space-xs);
+	margin-bottom: var(--space-s);
+	border-radius: var(--border-radius-m);
+	border: 1px solid var(--button-border-color);
+	height: 2.5em;
+	padding: 0 var(--space-xs);
+	box-sizing: border-box;
+}
+
+#capitalInput {
+	width: 100%;
+	height: 50%;
+	max-width: 300px;
+	padding: 0 var(--space-xs);
+	border-radius: var(--border-radius-m);
+	border: 1px solid var(--button-border-color);
+	height: 2.5em;
+	box-sizing: border-box;
+	margin-bottom: 0;
+}
+
+.capital-button:hover,
+.capital-button:focus-visible {
+	background-color: var(--button-background-active, var(--button-color));
+	color: var(--button-color-active, var(--button-background-color));
+}
+
+.capital-button-secondary:hover,
+.capital-button-secondary:focus-visible {
+	background-color: var(
+		--button-background-active,
+		var(--button-background-color)
+	);
+	color: var(--button-color-active, var(--button-color));
+}
+
+.capital-feedback h4 {
+	text-align: left;
+	margin: 0;
+}
+
+.capital-hint h5 {
+	text-align: left;
+	font-style: italic;
+	margin: 0;
+}
+.capital-endgame {
+	text-align: left;
+}

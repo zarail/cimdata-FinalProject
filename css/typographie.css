@@ -1,0 +1,132 @@
+:root {
+	/* https://open-props.style/#typography */
+	--heading-font: var(--font-geometric-humanist);
+	--body-font: var(--font-geometric-humanist);
+}
+
+/* 
+Fluide Schriftgrößen mit rem als Einheit, d.h. die tatsächliche Schriftgröße
+hängt davon ab, ob die User die Schriftgröße in den Browser-Einstellungen
+verändert (vergrößert) haben. Die Pixelwerte geben die Schriftgröße an, wenn
+im Browser die unveränderte Standardgröße 16px eingestellt ist und am HTML-Element
+die font-size auf 100% steht oder gar nicht angegeben ist. Wenn User dagegen
+im Browser die Standardgröße erhöhen, vergrößern sich auch die Schriften. Ein
+barrierefreies Layout sollte mindestens die Verdoppelung der Standardgröße
+auf 32px verkraften, viele User mit visuellen Einschränkungen wählen aber
+noch deutlich größere Schriftgrößen.
+@link https://utopia.fyi/type/calculator?c=320,16,1.2,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+	/* Step -2: 11.1111px → 12.8px */
+	--step--2: clamp(0.6944rem, 0.6533rem + 0.206vi, 0.8rem);
+	/* Step -1: 13.3333px → 16px */
+	--step--1: clamp(0.8333rem, 0.7683rem + 0.3252vi, 1rem);
+	/* Step 0: 16px → 20px */
+	--step-0: clamp(1rem, 0.9024rem + 0.4878vi, 1.25rem);
+	/* Step 1: 19.2px → 25px */
+	--step-1: clamp(1.2rem, 1.0585rem + 0.7073vi, 1.5625rem);
+	/* Step 2: 23.04px → 31.25px */
+	--step-2: clamp(1.44rem, 1.2398rem + 1.0012vi, 1.9531rem);
+	/* Step 3: 27.648px → 39.0625px */
+	--step-3: clamp(1.728rem, 1.4496rem + 1.392vi, 2.4414rem);
+	/* Step 4: 33.1776px → 48.8281px */
+	--step-4: clamp(2.0736rem, 1.6919rem + 1.9086vi, 3.0518rem);
+	/* Step 5: 39.8131px → 61.0352px */
+	--step-5: clamp(2.4883rem, 1.9707rem + 2.5881vi, 3.8147rem);
+}
+
+body {
+	color: var(--text-color);
+	font-size: var(--step-0);
+
+	font-family: var(--body-font);
+	line-height: var(--default-line-height);
+}
+
+/* Klassennamen wie .h2 ermöglichen es leicht, die semantisch
+  richtige Überschrift zu wählen (also z.B. keine Stufe auszulassen),
+  aber bei Bedarf eine h3 wie eine h2 aussehen zu lassen.
+ @custom-selector ist ein sehr früher (Stage 1) Vorschlag für CSS, der
+ mit PostCSS genutzt werden kann. (Für echte Projekte eventuell noch abwarten,
+ bis das Feature in Stage 2 ist.)  
+  */
+@custom-selector :--headings
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6;
+
+:--headings {
+	letter-spacing: -0.02em;
+	color: var(--heading-color);
+	font-family: var(--heading-font);
+	max-width: var(--max-heading-length);
+}
+
+:where(:--headings, button, input, label, legend, summary) {
+	line-height: var(--reduced-line-height);
+}
+
+main :where(p) {
+	max-inline-size: var(--max-text-length);
+}
+
+h1,
+.h1 {
+	font-size: var(--step-5);
+}
+
+h2,
+.h2 {
+	font-size: var(--step-4);
+}
+
+h3,
+.h3 {
+	font-size: var(--step-3);
+}
+
+h4,
+.h4 {
+	font-size: var(--step-2);
+}
+
+h5,
+.h5 {
+	font-size: var(--step-1);
+}
+
+h6,
+.h6 {
+	font-size: var(--step-0);
+}
+
+small {
+	font-size: var(--step--1);
+}
+
+:--headings,
+blockquote {
+	/* https://developer.chrome.com/blog/css-text-wrap-balance */
+	text-wrap: balance;
+}
+
+html {
+	/* https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/
+	https://css-tricks.com/almanac/properties/h/hanging-punctuation/	*/
+	hanging-punctuation: first allow-end last;
+
+	/* https://adactio.com/journal/21027 */
+	input,
+	textarea {
+		hanging-punctuation: none;
+	}
+}

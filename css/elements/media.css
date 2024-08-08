@@ -1,0 +1,18 @@
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*
+Make sure images are scaled correctly.
+Adhere to container width.
+Show fallback text in italic .
+*/
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	font-style: italic;
+}

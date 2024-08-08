@@ -1,0 +1,26 @@
+/* 
+Mit @custom-media können eigene Media Queries definiert und später
+mit z.B. @media (--large) { ... } verwendet werden. Da diese Syntax
+aber noch in keinem Browser unterstützt wird, wird die Definition
+durch PostCSS in die herkömmliche Syntax übersetzt. Deshalb ist es
+wichtig, dass in allen CSS-Datei, die in eigenständige CSS-Dateien
+umgewandelt werden, einmal die Datei queries.css importiert wird.
+Möchte man z.B. für eine Komponente CSS schreiben und die CSS-Datei
+in die Komponente importieren (also nicht in die globale style.css-Datei),
+so muss auch in dieser CSS-Datei die queries.css-Datei importiert werden.
+https://www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/
+*/
+
+/* Hier werden drei Bereiche im Layout mit der neuen (breit unterstützten)
+Syntax mit logischen Operatoren statt min-width und max-width definiert. */
+@custom-media --large (width >= 50rem);
+@custom-media --medium (32rem < width < 50rem);
+@custom-media --small (width <= 32rem);
+/* Bis bzw. abb mittlere Größe: */
+@custom-media --small-medium (width <= 50rem);
+@custom-media --medium-large (width > 32rem);
+
+/* Animationen reduzieren oder deaktivieren, wenn User das in den
+Barrierefreiheits-Optionen im Betriebssystem eingestellt haben. */
+@custom-media --reduced-motion (prefers-reduced-motion: reduce);
+@custom-media --default-motion (prefers-reduced-motion: no-preference);

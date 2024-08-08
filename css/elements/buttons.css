@@ -1,0 +1,48 @@
+button,
+.button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	color: var(--button-color);
+	border: 1px solid;
+	border-color: var(--button-border-color);
+	border-radius: var(--border-radius-m);
+	background-color: var(--button-background-color);
+	padding: 0.6em 1em 0.4em;
+	font-weight: bold;
+	box-shadow: var(--shadow-4);
+
+	&:where(a) {
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus-visible {
+		color: var(--button-color-active, var(--button-background-color));
+		background-color: var(--button-background-active, var(--button-color));
+		border-color: var(--button-border-color-active, var(--button-border-color));
+	}
+
+	&:active {
+		box-shadow: var(--inner-shadow-3);
+	}
+
+	&:where(.button--ghost) {
+		background-color: transparent;
+		color: var(--button-border-color);
+	}
+
+	&:where(.button--warn) {
+		--button-background-color: var(--warn-color);
+		--button-border-color: var(--warn-color);
+	}
+	&:where(.button--ok) {
+		--button-background-color: var(--ok-color);
+		--button-border-color: var(--ok-color);
+	}
+
+	&[disabled] {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+}

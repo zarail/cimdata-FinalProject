@@ -1,0 +1,70 @@
+/* Sizes */
+
+:root {
+	--content-padding: var(--space-2xs);
+	--max-width-xl: 90rem;
+	--max-width-l: 80rem;
+	--max-width-m: 70rem;
+	--max-width-s: 50rem;
+
+	--default-line-height: 1.5;
+	--reduced-line-height: 1.1;
+	--max-text-length: 60ch;
+	--max-heading-length: 40ch;
+
+	--border-radius-s: 3px;
+	--border-radius-m: 6px;
+	--border-radius-l: 12px;
+}
+
+/* Fluide Größen, die vor allem für Margin und Padding geeignet sind. Als Einheit wird hier px statt rem
+verwendet, da Abstände nicht zwingend wachsen müssen, wenn eine größere Schriftgröße eingestellt wird,
+und Abstände in rem leicht zu groß werden, wenn z.B. die doppelte Schriftgröße eingestellt ist. Über den
+Generator können zusätzlich Abstände in rem generiert werden, dafür muss nur ein anderer Präfix (statt --space)
+verwendet werden. 
+*/
+
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1120,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+	/* Space 3xs: 4px → 5px */
+	--space-3xs: clamp(4px, 3.6px + 0.125vi, 5px);
+	/* Space 2xs: 8px → 10px */
+	--space-2xs: clamp(8px, 7.2px + 0.25vi, 10px);
+	/* Space xs: 12px → 15px */
+	--space-xs: clamp(12px, 10.8px + 0.375vi, 15px);
+	/* Space s: 16px → 20px */
+	--space-s: clamp(16px, 14.4px + 0.5vi, 20px);
+	/* Space m: 24px → 30px */
+	--space-m: clamp(24px, 21.6px + 0.75vi, 30px);
+	/* Space l: 32px → 40px */
+	--space-l: clamp(32px, 28.8px + 1vi, 40px);
+	/* Space xl: 48px → 60px */
+	--space-xl: clamp(48px, 43.2px + 1.5vi, 60px);
+	/* Space 2xl: 64px → 80px */
+	--space-2xl: clamp(64px, 57.6px + 2vi, 80px);
+	/* Space 3xl: 96px → 120px */
+	--space-3xl: clamp(96px, 86.4px + 3vi, 120px);
+
+	/* One-up pairs */
+	/* Space 3xs-2xs: 4px → 10px */
+	--space-3xs-2xs: clamp(4px, 1.6px + 0.75vi, 10px);
+	/* Space 2xs-xs: 8px → 15px */
+	--space-2xs-xs: clamp(8px, 5.2px + 0.875vi, 15px);
+	/* Space xs-s: 12px → 20px */
+	--space-xs-s: clamp(12px, 8.8px + 1vi, 20px);
+	/* Space s-m: 16px → 30px */
+	--space-s-m: clamp(16px, 10.4px + 1.75vi, 30px);
+	/* Space m-l: 24px → 40px */
+	--space-m-l: clamp(24px, 17.6px + 2vi, 40px);
+	/* Space l-xl: 32px → 60px */
+	--space-l-xl: clamp(32px, 20.8px + 3.5vi, 60px);
+	/* Space xl-2xl: 48px → 80px */
+	--space-xl-2xl: clamp(48px, 35.2px + 4vi, 80px);
+	/* Space 2xl-3xl: 64px → 120px */
+	--space-2xl-3xl: clamp(64px, 41.6px + 7vi, 120px);
+
+	/* Custom pairs */
+	/* Space s-l: 16px → 40px */
+	--space-s-l: clamp(16px, 6.4px + 3vi, 40px);
+}
